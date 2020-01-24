@@ -16,19 +16,50 @@ console.log(data.items[0])
 
 console.log('\nProblem 1:\n')
 
+let count = 0
+
+for (let i = 0; i < data.items.length; i++) {
+    if (data.items[i].kind === "shopping#product") {
+        count++;
+    }
+};
+
+console.log(count);
+
+
+
 // 2.) Print the `title` all items with a `backorder` availability
 // in `inventories`.
 
 console.log('\nProblem 2:\n')
 
+for (let i = 0; i < data.items.length; i++) {
+    if (data.items[i].product.inventories[0].availability === "backorder") {
+        console.log(data.items[i].product.title + ", ");
+    }};
+
+ 
 // 3.) Print the `title` all items with more than one image link.
 
 console.log('\nProblem 3:\n')
+
+
+for (let i = 0; i < data.items.length; i++) {
+    if (data.items[i].product.images.length > 1) {
+            console.log(data.items[i].product.title + ", ");
+        }};
+
 
 // 4.) Print all "Canon" products in the items
 // HINT: careful with case sensitivity!
 
 console.log('\nProblem 4:\n')
+
+for (let i = 0; i < data.items.length; i++) {
+    if (data.items[i].product.brand === "Canon") {
+            console.log(data.items[i].product.title + ", ");
+        }};
+
 
 // 5.) Print all `items` that have an author name of "eBay" and are
 // brand "Canon".
@@ -36,9 +67,20 @@ console.log('\nProblem 4:\n')
 
 console.log('\nProblem 5:\n')
 
+for (let i = 0; i < data.items.length; i++) {
+    if (data.items[i].product.brand === "Canon" && data.items[i].product.author.name === "eBay") {
+            console.log(data.items[i]);
+        }};
+
 // 6.) Print all the products with their **brand**, **price**,
 // and an **image link**
 // HINT: You can just use the first (0th) element in the images
 // and inventories arrays.
 
+
+
 console.log('\nProblem 6:\n')
+
+for (let i = 0; i < data.items.length; i++) {
+        console.log(data.items[i].product.brand, data.items[i].product.inventories[0].price, data.items[i].product.images[0].link);
+        };
